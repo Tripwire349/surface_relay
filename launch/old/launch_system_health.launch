@@ -1,0 +1,47 @@
+<launch>
+	<!-- Set VINT hub serial numbers -->
+	<arg name="device_serial_number_temperature_sensors_value" default="12345">
+	<arg name="device_serial_number_voltage_sensors_value_0" default="12346">
+	<arg name="device_serial_number_voltage_sensors_value_1" default="12347">
+	<arg name="device_serial_number_amperage_sensors_value_0" default="12348">
+	<arg name="device_serial_number_amperage_sensors_value_1" default="12349">
+
+	<!-- Set number of each type of sensors -->
+	<arg name="number_of_temperature_sensors_value" default="4">
+	<arg name="number_of_voltage_sensors_value" default="4">
+	<arg name="number_of_amperage_sensors_value" default="4">
+
+	<!-- Set system update time (seconds) -->
+	<arg name="system_update_time_seconds_value" default="5">
+
+	<group ns="system_health">
+		<!-- Start temperature node -->
+		<node name-"system_health_temperature" pkg="" type="temperature_sensors.py" output="screen">
+			<param name="device_serial_number_temperature_sensors_value" value="$(arg device_serial_number_temperature_sensors_value)">
+			<param name="number_of_temperature_sensors_value" value="$(arg number_of_temperature_sensors_value)">
+			<param name="system_update_time_seconds_value" value="$(arg system_update_time_seconds_value)">
+		</node>
+
+		<!-- Start voltage node -->
+		<node name-"system_health_voltage" pkg="" type="voltage_sensors.py" output="screen">
+			<param name="device_serial_number_voltage_sensors_value_0" value="$(arg device_serial_number_voltage_sensors_value_0)">
+			<param name="device_serial_number_voltage_sensors_value_1" value="$(arg device_serial_number_voltage_sensors_value_1)">
+			<param name="number_of_voltage_sensors_value_0" value="$(arg number_of_voltage_sensors_value_0)">
+			<param name="number_of_voltage_sensors_value_1" value="$(arg number_of_voltage_sensors_value_1)">
+			<param name="system_update_time_seconds_value" value="$(arg system_update_time_seconds_value)">
+		</node>
+
+		<!-- Start amperage node -->
+		<node name-"system_health_amperage" pkg="" type="amperage_sensors.py" output="screen">
+			<param name="device_serial_number_amperage_sensors_value_0" value="$(arg device_serial_number_amperage_sensors_value_0)">
+			<param name="device_serial_number_amperage_sensors_value_1" value="$(arg device_serial_number_amperage_sensors_value_1)">
+			<param name="number_of_amperage_sensors_value_0" value="$(arg number_of_amperage_sensors_value_0)">
+			<param name="number_of_amperage_sensors_value_1" value="$(arg number_of_amperage_sensors_value_1)">
+			<param name="system_update_time_seconds_value" value="$(arg system_update_time_seconds_value)">
+		</node>
+
+		<!-- Start system health summary node -->
+		<node name-"system_health_summary" pkg="" type="system_health_summary.py" output="screen">
+		</node>
+	</group>
+</launch>
