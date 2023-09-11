@@ -24,6 +24,10 @@ then
 	cp -R libphidget22extra-1.16.20230707 /usr/lib/
 	echo 'Phidget libraries moved to proper location' | sudo tee -a config_status.txt
 	echo ""
+	
+	# Return to surface_relay/surface_relay
+	echo Returning to original directory
+	cd ../surface_relay
 fi
 
 # Check if /data_storage/ folder exists. If it doesn't, create it
@@ -33,6 +37,10 @@ fi
 #	mkdir data_storage_sensors
 #	echo '/data_storage_sensors/ folder created' | sudo tee -a config_status.txt
 #fi
+
+# Source ros
+source /opt/ros/foxy/setup.bash
+source /opt/ros2_ws/install/setup.bash
 
 # Let user know the script is starting
 echo
