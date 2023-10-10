@@ -35,14 +35,14 @@ source /opt/ros/foxy/setup.bash
 source /opt/ros2_ws/install/setup.bash
 
 # Let user know the script is starting
-#echo
-#echo Make sure the phidget sensors are in the following configuration with the phidget hub:
-#echo Temperature -- hub port 0
-#echo Amperage ----- hub port 1
-#echo Voltage ------ hub port 2
-#echo
-#echo Note: amperage sensor has 2 data ports to the phidget hub - use the bottom data port [AC RMS]
-#echo
+echo
+echo Make sure the phidget sensors are in the following configuration with the phidget hub:
+echo Temperature -- hub port 0
+echo Amperage ----- hub port 1
+echo Voltage ------ hub port 2
+echo
+echo Note: amperage sensor has 2 data ports to the phidget hub - use the bottom data port [AC RMS]
+echo
 
 echo --- Starting Surface Relay health monitoring system ---
 echo
